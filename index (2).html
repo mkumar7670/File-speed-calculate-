@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Transfer Speed Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📁 File Transfer Speed Calculator</h2>
+
+<label>File Size (MB):</label><br>
+<input type="number" id="fileSize"><br>
+
+<label>Speed (MB/s):</label><br>
+<input type="number" id="speed"><br>
+
+<button onclick="calculate()">Calculate Time</button>
+
+<h3 id="result"></h3>
+
+<script>
+function calculate() {
+    let fileSize = document.getElementById("fileSize").value;
+    let speed = document.getElementById("speed").value;
+
+    if (fileSize && speed) {
+        let time = fileSize / speed;
+        document.getElementById("result").innerText =
+            "⏱ Time required: " + time.toFixed(2) + " seconds";
+    } else {
+        document.getElementById("result").innerText =
+            "Please enter values!";
+    }
+}
+</script>
+
+</body>
+</html>
